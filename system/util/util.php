@@ -42,3 +42,10 @@ function import($import) {
 
   $_imports[$import] = $import;
 }
+
+function bongkar($array)
+{
+  echo '<pre>';
+  echo print_r($array);
+  echo '</pre>';
+}

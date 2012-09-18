@@ -7,6 +7,7 @@ class Readconfig
 {
   var $file;
   var $result;
+  var $tes;
 
   
   /**
