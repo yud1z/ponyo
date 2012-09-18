@@ -1,5 +1,7 @@
 <?php
 
+namespace Controller\Welcome;
+
 /**
  * this just Welcome class
  * you can edit this

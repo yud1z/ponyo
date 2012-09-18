@@ -43,9 +43,9 @@ function import($import) {
   $_imports[$import] = $import;
 }
 
-function bongkar($array)
+function bongkar($alay)
 {
   echo '<pre>';
-  echo print_r($array);
+  print_r($alay);
   echo '</pre>';
 }

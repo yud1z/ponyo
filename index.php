@@ -6,3 +6,4 @@ function __autoload($class_name) {
 
 new Bootstrap();
 new Route();
+new Uri();
