@@ -6,7 +6,7 @@ namespace welcome;
  * this just Welcome class
  * you can edit this
  **/
-class Welcome
+class Helo
 {
   
   function __construct($welome, $tes)

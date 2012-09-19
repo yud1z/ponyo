@@ -52,3 +52,11 @@ function bongkar($alay)
   print_r($alay);
   echo '</pre>';
 }
+
+
+function call_constructor_array_eval($cls, $arguments){
+   unset($arguments[1]);
+   $code = '$obj = new '.$cls.'('.implode(',', $arguments).');';
+   eval($code);
+   return $obj;
+}

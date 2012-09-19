@@ -35,6 +35,7 @@ class Route extends Readconfig
       try{
         import('application.'. $this->route .'.controller.' . $this->route);
         $className = ''. $this->route .'\\'. $this->route;
+        error_reporting(0);
         new $className;
       }
       catch(Exception $e)
