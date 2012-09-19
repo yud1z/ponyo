@@ -17,12 +17,18 @@ class Uri
     $this->FetchUri();
     if ($this->getUri()) {
       $uri = $this->getUri();
-      import('application.'. $uri[1] .'.controller.' . $uri[1]);
-      //$tes = new other;
-      //use welcome;
-      //$uri = new $uri[1];
-      //$uri = new ReflectionClass($uri[1]);
-      //bongkar($uri->getMethod('__construct')->getNumberOfParameters());
+      try{
+        import('application.'. $uri[1] .'.controller.' . $uri[1]);
+        $classname = ''. $uri[1] .'\\'. $uri[1];
+        new $classname;
+        $uri = new ReflectionClass($classname);
+        //bongkar($uri->getMethod('__construct')->getNumberOfParameters());
+      }
+      catch(Exception $e)
+      {
+        //echo BASE;
+        header('Location: /index.php/error/404');
+      }
     }
     else {
       return true;

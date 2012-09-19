@@ -1,16 +1,16 @@
 <?php
 
-namespace welcome;
+namespace error;
 
 /**
  * this just Welcome class
  * you can edit this
  **/
-class Welcome
+class Error
 {
   
   function __construct()
   {
-    echo "this just welcome";
+    echo "this is not found";
   }
 }

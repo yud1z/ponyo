@@ -3,4 +3,5 @@
 ; just comment and uncomment it
 
 [config]
-landing = "welcome"
+landing   = "welcome"
+clean_url = "no"

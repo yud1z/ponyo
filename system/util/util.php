@@ -25,8 +25,11 @@ function import($import) {
 
   if ($class != '*') {
     // add the class and it's file location to the imports array
+    
+    if (!@include_once($file)) {
+      throw new Exception('Tidak bisa meload file <font color=red>'. $file .'</font>');
+    }
 
-    include_once($file);
 
   } else {
     // add all the classes from this package and their file location to the imports array
