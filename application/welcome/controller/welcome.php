@@ -1,6 +1,6 @@
 <?php
 
-namespace Controller\Welcome;
+namespace \application\welcome;
 
 /**
  * this just Welcome class

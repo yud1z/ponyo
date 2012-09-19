@@ -4,6 +4,8 @@
  * Url Handler
  * Sengaja diberi nama uri supaya gampang klo ngapalin
  **/
+
+
 class Uri
 {
   var $uri;
@@ -15,10 +17,12 @@ class Uri
     $this->FetchUri();
     if ($this->getUri()) {
       $uri = $this->getUri();
-      bongkar($uri);
-      //import('application.'. $uri[1] .'.controller.' . $uri[1]);
-      $uri = new ReflectionClass($uri[1]);
-      bongkar($uri->getMethod('__construct')->getNumberOfParameters());
+      import('application.'. $uri[1] .'.controller.' . $uri[1]);
+      //$tes = new other;
+      //use welcome;
+      //$uri = new $uri[1];
+      //$uri = new ReflectionClass($uri[1]);
+      //bongkar($uri->getMethod('__construct')->getNumberOfParameters());
     }
     else {
       return true;
