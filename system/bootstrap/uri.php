@@ -37,6 +37,8 @@ class Uri
           $this->setFile(scandir('application/'. $parent_url . '/controller'));
           $this->FilterFile();
 
+          $this->ReadParam(count($this->getUri()));
+
           //bongkar($this->getFile());
         }
         else {
@@ -52,6 +54,18 @@ class Uri
     }
     else {
       return true;
+    }
+  }
+
+  /**
+   *  Fungsi rekursif untuk baca url
+   */
+  function ReadParam($jumlah_uri)
+  {
+    $uri = $this->getUri();
+    if ($jumlah_uri >= 0) {
+      $this->ReadParam($jumlah_uri - 1);
+      bongkar($jumlah_uri);
     }
   }
 
@@ -104,16 +118,22 @@ class Uri
    */
   function FilterFile()
   {
+    $uri = $this->getUri();
     foreach ($this->file as $kunci_file) {
-      if (preg_match('/[a-z].php/i', $kunci_file)) {
-        $key[] = $kunci_file;
-      }
-      else {
-        $key = "";
-      }
+
+        //filter hanya untuk file php saja
+        $fileInfo = pathinfo($kunci_file);
+        
+        if ($fileInfo['extension'] == 'php') {
+          if ($kunci_file != $uri[1] . '.php') {
+            $key[] = $kunci_file;
+          }
+        }
+
+
     }
     bongkar($key);
-    $a = preg_match('/[a-z].php/i', 'file.php');
+    $a = preg_match('/\.php$/i', 'file.php');
     //bongkar($a);
       $this->file;
   }
