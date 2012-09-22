@@ -49,7 +49,8 @@ class Uri
       }
       catch(Exception $e)
       {
-        header('Location: /index.php/error/404');
+        bongkar($e->getMessage());
+        //header('Location: /index.php/error/404');
       }
     }
     else {
@@ -62,10 +63,27 @@ class Uri
    */
   function ReadParam($jumlah_uri)
   {
+    bongkar($jumlah_uri);
     $uri = $this->getUri();
-    if ($jumlah_uri >= 0) {
+    if ($jumlah_uri > 0) {
+      $classname = ''. $uri[1] .'\\'. $uri[$jumlah_uri];
       $this->ReadParam($jumlah_uri - 1);
-      bongkar($jumlah_uri);
+
+      if (class_exists($classname)) {
+        $uri = new ReflectionClass($classname);
+        $jumlah_argument = $uri->getMethod('__construct')->getNumberOfParameters();
+        call_constructor_array_eval($classname, $this->getUri());
+      }
+      else {
+        echo "tes";  
+      }
+
+      //echo $classname;
+      //echo "<br>";
+      //echo $jumlah_argument;
+
+      //TODO::jika lebih dari parameter maka $jumlah_uri akan dikurangi dari count arg.
+      
     }
   }
 
